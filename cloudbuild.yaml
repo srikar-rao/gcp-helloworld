@@ -6,11 +6,11 @@ steps:
 
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-east5-docker.pkg.dev/acquired-rarity-431700-f0/gcp-helloworld/gcp-helloworld:${SHORT_SHA}', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/acquired-rarity-431700-f0/gcp-helloworld/gcp-helloworld:${SHORT_SHA}', '.']
 
   # Push to GCR
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-east5-docker.pkg.dev/acquired-rarity-431700-f0/gcp-helloworld/gcp-helloworld:${SHORT_SHA}']
+    args: ['push', 'us-central1-docker.pkg.dev/acquired-rarity-431700-f0/gcp-helloworld/gcp-helloworld:${SHORT_SHA}']
 
 logsBucket: 'gs://srikar-gcp-builds'  # Replace with your Cloud Storage bucket name
 options:
