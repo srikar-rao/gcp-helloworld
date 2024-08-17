@@ -3,6 +3,20 @@ steps:
   - name: 'gcr.io/cloud-builders/mvn'
     args: ['clean', 'install']
 
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - '-c'
+      - |
+        docker --version
+        dockerd > /dev/null 2>&1 &
+        sleep 10
+    entrypoint: bash
+
+  - name: gcr.io/cloud-builders/mvn
+    args:
+      - clean
+      - verify
+
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'us-central1-docker.pkg.dev/acquired-rarity-431700-f0/gcp-helloworld/gcp-helloworld:${SHORT_SHA}', '.']
