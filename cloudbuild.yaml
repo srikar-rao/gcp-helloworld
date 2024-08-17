@@ -1,7 +1,7 @@
 steps:
   # Build the JAR
-  - name: 'gcr.io/cloud-builders/mvn'
-    args: ['clean', 'install']
+#  - name: 'gcr.io/cloud-builders/mvn'
+#    args: ['clean', 'install']
 
   - name: gcr.io/cloud-builders/docker
     args:
