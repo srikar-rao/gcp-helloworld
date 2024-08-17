@@ -1,4 +1,4 @@
-package gcp.hello.world.app.unit.repositorytest;
+package gcp.hello.world.app.test.repositorytest;
 
 import gcp.hello.world.app.entity.Todo;
 import gcp.hello.world.app.repostiory.TodoRepository;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @ActiveProfiles("test")
-public class TodoRepositoryTest {
+public class TodoRepositoryIntegrationTest {
 
     @Autowired
     private TodoRepository todoRepository;

@@ -1,4 +1,4 @@
-package gcp.hello.world.app.integration.todorepo;
+package gcp.hello.world.app.repositorycontainertest;
 
 import gcp.hello.world.app.entity.Todo;
 import gcp.hello.world.app.repostiory.TodoRepository;
@@ -19,7 +19,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @DataJpaTest
 @Testcontainers
 @SpringJUnitConfig
-public class TodoRepositoryIntegrationTest {
+public class TodoRepositoryIntegrationContainerTest {
 
     //Require to run docker running in local
 
