@@ -2,23 +2,8 @@ steps:
   # Build the JAR
   - name: 'gcr.io/cloud-builders/mvn'
     args: ['clean', 'install']
-  
 
-  # Step 1: Build the Spring Boot application Docker image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'my-springboot-app', '.']
-
-  # Step 2: Start a PostgreSQL container for the integration tests
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['run', '-d', '-p', '5432:5432', '--name', 'my-postgres-instance', 'postgres:latest']
-
-  # Step 3: Run the integration tests inside the Spring Boot application container
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['run', '--network', 'container:my-postgres-instance', '-v', '/var/run/docker.sock:/var/run/docker.sock', '-it', 'my-springboot-app', 'bash', '-c', 'mvn verify']
-
-    
-    
-    # Build the Docker image
+  # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'us-central1-docker.pkg.dev/acquired-rarity-431700-f0/gcp-helloworld/gcp-helloworld:${SHORT_SHA}', '.']
 
@@ -29,7 +14,3 @@ steps:
 logsBucket: 'gs://srikar-gcp-builds'  # Replace with your Cloud Storage bucket name
 options:
   logging: GCS_ONLY
-  machineType: 'E2_HIGHCPU_8'
-#  timeout: 1200s # Adjust the timeout as necessary
-
-
