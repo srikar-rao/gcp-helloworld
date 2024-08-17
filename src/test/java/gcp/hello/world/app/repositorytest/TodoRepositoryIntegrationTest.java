@@ -1,4 +1,4 @@
-package gcp.hello.world.app.test.repositorytest;
+package gcp.hello.world.app.repositorytest;
 
 import gcp.hello.world.app.entity.Todo;
 import gcp.hello.world.app.repostiory.TodoRepository;
