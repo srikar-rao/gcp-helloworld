@@ -96,7 +96,8 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<includes>
-						<include>**/*Test.java</include> <!-- Include only unit tests -->
+						<!-- Include only tests in the 'unit' package -->
+						<include>**/unit/**/*Test.java</include>
 					</includes>
 				</configuration>
 			</plugin>
@@ -110,16 +111,15 @@
 							<goal>integration-test</goal>
 							<goal>verify</goal>
 						</goals>
-						<configuration>
-							<includes>
-								<include>**/*IntegrationTest.java</include> <!-- Include only integration tests -->
-							</includes>
-						</configuration>
 					</execution>
 				</executions>
+				<configuration>
+					<includes>
+						<!-- Include only tests in the 'integration' package -->
+						<include>**/integration/**/*IntegrationTest.java</include>
+					</includes>
+				</configuration>
 			</plugin>
 		</plugins>
-
 	</build>
-
 </project>
